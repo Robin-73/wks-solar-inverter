@@ -1,0 +1,13 @@
+[Unit]
+Description=WKS MQTT Update
+After=mosquitto.service
+
+[Service]
+Type=simple
+Restart=on-failure
+ExecStart=/usr/bin/python3 /opt/WKS/WKSUpdate.py
+StandardOutput=append:/var/log/WKSUpdate.log
+StandardError=append:/var/log/WKSUpdate-error.log
+
+[Install]
+WantedBy=multi-user.target
